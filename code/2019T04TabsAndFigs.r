@@ -38,7 +38,7 @@ awl <- read.csv('./data/awl_shellfish_190731.csv')
   #write.csv(m_17,'./output/931PopMales_Main_17.csv') 
 #Old Size Classes
   dat_old %>% filter (PROJECT_CODE == "T04") %>% 
-    transmute(Year = YEAR,Tows = n,
+    transmute(Year = Year,Tows = n,
               'Pre-4' =  MT10_P_,
               'Pre-3' =  MT9_P_,  
               'Pre-2' = MT7_P_ + MT8_P_, 
@@ -49,7 +49,7 @@ awl <- read.csv('./data/awl_shellfish_190731.csv')
 # Composite table 
 m_17  %>% left_join (m_old %>% select (Year, LM_140 = LM, LM_140_CI = LM_CI)) %>% # join LM from old SC to abund table using new SCs 
   select(-c(TM,TM_CI), everything())->m_comp # move totals to end 
-#write.csv(m_comp, './output/931PopMales_Main_comp.csv')  # this uses new size classes for all except LM_140. 
+@write.csv(m_comp, './output/931PopMales_Main_comp.csv')  # this uses new size classes for all except LM_140. 
 
 ## Females Main ----
 dat_17 %>% filter (PROJECT_CODE == 'T04') %>% select(year = YEAR, tows = n,
@@ -58,7 +58,7 @@ dat_17 %>% filter (PROJECT_CODE == 'T04') %>% select(year = YEAR, tows = n,
   #write.csv(f,'./output/931PopFems_Main.csv')
 
 ##  Catch by Station (per Carol request) ----
-read.csv('./data/C_17_190301.csv') %>%
+read.csv('./data/C_17_190731.csv') %>%
   right_join(event, by = c('EVENT_ID' = 'Event')) %>% # limited to good tows at top
   filter (YEAR == 2018) %>% transmute(
     Station = STATION_ID,
@@ -79,7 +79,7 @@ read.csv('./data/C_17_190301.csv') %>%
   # previously a version of this from SQL, emailed to KG.  
 
 ## CPUE by station (per KG request 180130, not incorporated to 2017 rmd) ----
-  read.csv('./data/C_17_190301.csv') %>%  right_join(event, by = c('EVENT_ID' = 'Event')) %>% # limited to good tows at top
+  read.csv('./data/C_17_190731.csv') %>%  right_join(event, by = c('EVENT_ID' = 'Event')) %>% # limited to good tows at top
     filter  (YEAR == 2018) %>% transmute(
     Station = STATION_ID, 
     length = length, 
@@ -90,7 +90,7 @@ read.csv('./data/C_17_190301.csv') %>%
     Mature_fems = (FT12_T + FT13_T)/length, 
     Tot_fems = TF_T/length) %>% arrange (Station) -> cpm 
   
-  write.csv(cpm ,'./output/2018T04_931CPUEByStation_17sc.csv') 
+  write.csv(cpm ,'./output/2019T04_931CPUEByStation_17sc.csv') 
   
   # calc ranges and cv for KG 
   events %>% filter (PROJECT_CODE == 'T04', YEAR == 2018, USED_IN_ESTIMATE == 'YES') %>% left_join(cpm, by= c("STATION_ID" = "Station")) %>% # exclude 139
@@ -126,7 +126,7 @@ read.csv('./data/C_17_190301.csv') %>%
               ymin = ifelse((LM_P - LM_P_CI) > 0 , (LM_P - LM_P_CI), 0),
               ymax = LM_P + LM_P_CI)) + 
           geom_pointrange() + 
-          scale_x_continuous(breaks = seq(1990,2018,1)) + 
+          scale_x_continuous(breaks = seq(1990,2019,1)) + 
           scale_y_continuous(label = comma, breaks = seq(0,3000,1000), limits = c(0,3100)) + 
           labs( x = "Year", y = "Thousands of crab") + 
           theme( axis.text.x = element_text(angle=90, vjust= 0)) -> L17
@@ -135,7 +135,7 @@ read.csv('./data/C_17_190301.csv') %>%
 
 # OLD size classes   
   dat_old %>% filter (PROJECT_CODE == "T04") %>%
-    transmute ("proj" = PROJECT_CODE, "yr" = YEAR,
+    transmute ("proj" = PROJECT_CODE, "yr" = Year,
                "LM_P" = LM_P_ / 1000, # convert to thousands of crab 
                "LM_P_CI" = LM_P_CI_ / 1000) %>%
     
@@ -143,7 +143,7 @@ read.csv('./data/C_17_190301.csv') %>%
                 ymin = ifelse((LM_P - LM_P_CI) > 0 , (LM_P - LM_P_CI), 0),
                 ymax = LM_P + LM_P_CI)) + 
     geom_pointrange() +  
-    scale_x_continuous(breaks = seq(1990,2018,1)) + 
+    scale_x_continuous(breaks = seq(1990,2019,1)) + 
     scale_y_continuous(label = comma, breaks = seq(0,3000,500)) + 
     labs( x = "Year", y = "Thousands of crab") + 
     theme( axis.text.x = element_text(angle=90, vjust= 0)) -> Lold
@@ -152,7 +152,7 @@ read.csv('./data/C_17_190301.csv') %>%
   
 
 ## DUNGY CPUE ----
-  dat <- read.csv("./data/qP_910_190301.csv")
+  dat <- read.csv("./data/qP_910_190301.csv") # need to calculate dungys for 2019
   
   dat %>% select ("PROJECT_CODE", "YEAR","n","SM_CBar","SM_varC", "LM_CBar","LM_varC","TM_CBar","TM_varC",
                 "TF_CBar","TF_varC") -> dat
@@ -266,8 +266,8 @@ read.csv('./data/C_17_190301.csv') %>%
 ## Tanner CH vs CW plot ## ----
 # 190305 for final vesrion decided to just keep previous figure.  SHould be be virtually unchanged folling nprb edits.  
 # If i were to redo this figure should convert to ggplot and look at jz suggestion (exclued VO?)
-read.csv ("./data/awl_shellfish_190301.csv") %>% 
-filter(PROJECT_CODE == "T04", YEAR > 2008) -> awl # 2006 and 2007 had CH too, but excluding to fit on 6 panel plot
+read.csv ("./data/awl_shellfish_190731.csv") %>% 
+filter(PROJECT_CODE == "T04", YEAR > 2009) -> awl # excluding 2006,2007,2009 to fit on 6 panel plot
 events %>% filter (USED_IN_ESTIMATE == 'YES') %>% select (EVENT_ID) %>% inner_join(awl) -> awl # limit to used in est following previous
     
 yrs <- unique(awl$YEAR)  
@@ -342,7 +342,7 @@ for (i in yrs)
     write.csv(ma_17,'./output/931PopMales_Apx_17.csv')             
     
     dat_old %>% filter (PROJECT_CODE == 'T04') %>% 
-      select (Year = YEAR, 
+      select (Year = Year, 
               'Pre-4' =  MT10_P_, 'Pre-4_CI' = MT10_P_CI_, 
               'Pre-3' =  MT9_P_, 'Pre-3_CI'  = MT9_P_CI_, 
               'Pre-2n' = MT7_P_, 'Pre-2n_CI' = MT7_P_CI_,
