@@ -34,7 +34,7 @@ One very large Tanner haul was made at station 126.  The tow caught aproximately
 \listoftables
 \listoffigures
 
-![2018 Southern District large-mesh trawl survey grid and tow paths.](../figs/2018T04tows_180918.png)
+![2019 Southern District large-mesh trawl survey grid and tow paths.](../figs/2019T04_towPaths_vector_190731.png)
 
 \hfill\break
 \hfill\break
@@ -122,7 +122,7 @@ kable(fem, format = "latex", booktabs = T, align = 'r',
 
 ![Legal male Tanner crab abundance estimates and 95% confidence intervals using the 2017 legal size (114 mm) from trawl surveys in the Southern District, 1990-2018.](../figs/T04LM_2017SCs.png)
 
-![Legal male Tanner crab abundance estimates and 95% confidence intervals using the pre-2017 legal size (140 mm) from trawl surveys in the Southern District, 1990-2018.](../figs/T04LM_oldSCs.png.png)
+![Legal male Tanner crab abundance estimates and 95% confidence intervals using the pre-2017 legal size (140 mm) from trawl surveys in the Southern District, 1990-2018.](../figs/T04LM_oldSCs.png)
 
 ```{r, results='asis', echo=F}
 read.csv("../output/2018T04_931CatchByStation_17sc.csv", colClasses=rep("character"),11) %>% 
@@ -139,9 +139,9 @@ add_header_above(c(" " = 2, "Males" = 7, "Females" = 3))
 \pagebreak
 \newpage
 
-![Legal male Tanner crab CPUE (crab/nmi) using the new legal size (114 mm) in the 2018 Southern District trawl survey.](../figs/2018T04_LMCPUE_180918.png)
+![Legal male Tanner crab CPUE (crab/nmi) using the new legal size (114 mm) in the 2019 Southern District trawl survey.](../figs/2019T04_LMCPUE_190731.png)
 
-![Total male Tanner crab CPUE (crab/nmi) in the 2018 Southern District trawl survey.](../figs/2018T04_TMCPUE_180918.png)
+![Total male Tanner crab CPUE (crab/nmi) in the 2019 Southern District trawl survey.](../figs/2019T04_TMCPUE_190731.png)
 
-![Chela height vs carapace width of male Tanner crab captured in the Southern District trawl survey, 2009-2018.](../figs/CHvsCW_931T04_2008to18_raw.png)
+![Chela height vs carapace width of male Tanner crab captured in the Southern District trawl survey, 2011-2019.](../figs/CHvsCW_931T04_2008to19_raw.png)
 
