@@ -18,17 +18,16 @@ options(scipen=9999) # remove scientific notation
 knitr::opts_chunk$set(echo = FALSE, message=F, warning=F)
 ```
 
-The 2018 Southern District large-mesh bottom trawl survey was completed between September 4th and 9th.  A total of 39 successful 0.5 nmi tows were completed, all in core stations.  No ancillary stations were sampled this year.  An estimated 12,568 male and 4,194 female Tanner crab were captured.
+The 2019 Southern District large-mesh bottom trawl survey was completed between May 22nd and 26th.  A total of 38 successful 0.5 nmi tows were completed, all in core stations.  No ancillary stations were sampled this year.  A total of 1,682 male and 2,661 female Tanner crab were captured.
 
-The recruit class size definitions for male Tanner crab in Cook Inlet were revised in 2017, coinciding with a reduction in the legal size limit from 140 mm (5.5 in) to 114 mm (4.5 in) (Table 1). For historical comparison the entire time series of survey data (1990 to 2018) is summarized using both sets of recruit classes herein.
+The recruit class size definitions for male Tanner crab in Cook Inlet were revised in 2017, coinciding with a reduction in the legal size limit from 140 mm (5.5 in) to 114 mm (4.5 in) (Table 1). For historical comparison the entire time series of survey data (1990 to 2019) is summarized using both sets of recruit classes herein.
 
-Using the new legal size (114 mm), 348 legal males were captured in the 2018 survey.  Mean legal male CPUE was 18.06 crab/nmi (CV = 274%) and ranged from 0 to 249.  The estimated abundance of legal males using the new legal size was 222,852 crabs (+/- 197,861 @ 95% CI), similar to the 4 most recent surveys and less than those prior to 2010 (Table 2; Figure 2).
+Using the new legal size (114 mm), 420 legal males were captured in the 2019 survey.  Mean legal male CPUE was 22.2 crab/nmi (CV = 190%) and ranged from 0 to 146.  The estimated abundance of legal males using the new legal size was 273,511 crab (+/- 170,281 @ 95% CI), a 23% increase from 2018. Although the legal male abundance has increased in 2 consecutive years since 2017, it remains less than what was observed prior to 2010 (Table 2; Figure 2).
 
-Using the old legal size (140 mm), 8 legal males were captured in the 2018 survey.  When analyzed using the old size categories, the 2018 survey produced the lowest legal male abundance estimate on record, 5,512 crab (+/- 7,993) (Table 3; Figure 3).      
+Using the old legal size (140 mm), 6 legal males were captured in the 2019 survey.  When analyzed using the old size categories, the 2019 survey produced the lowest legal male abundance estimate on record, 4,135 crab (+/- 5,149) (Table 3; Figure 3).      
 
 Legal male Tanners were found predominately in deep water west of the spit (Figures 4 and 5). 
    
-One very large Tanner haul was made at station 126.  The tow caught aproximately 10,437 male Tanners, more than any other tow in the survey's history, however none of those measured were legal (Table 5).   
 
 \newpage
 \listoftables
@@ -62,7 +61,7 @@ read.csv("../output/931PopMales_Main_17.csv") %>%
     arrange(Year) -> LM17
 
 kable(LM17, format = "latex", booktabs = T, align = 'r',
-      caption="Male Tanner crab abundance estimates using the 2017 size class definitions from trawl surveys in the Southern District, 1990-2018. Parenthetical size limits are carapace width in millimeters.") %>%
+      caption="Male Tanner crab abundance estimates using the 2017 size class definitions from trawl surveys in the Southern District, 1990-2019. Parenthetical size limits are carapace width in millimeters.") %>%
 kable_styling() %>%
 add_header_above(c(" " = 2, "Pre-Recruits" = 4, "Legal Males" = 2, "Total Males" = 2))%>%
 column_spec(1:2, width = "1.3em") %>%
@@ -84,7 +83,7 @@ read.csv("../output/931PopMales_Main_old.csv") %>%
     arrange(Year) -> LM17
 
 kable(LM17, format = "latex", booktabs = T, align = 'r',
-      caption="Male Tanner crab abundance estimates using the pre-2017 size class definitions from trawl surveys in the Southern District, 1990-2018. Parenthetical size limits are carapace width in millimeters.") %>%
+      caption="Male Tanner crab abundance estimates using the pre-2017 size class definitions from trawl surveys in the Southern District, 1990-2019. Parenthetical size limits are carapace width in millimeters.") %>%
 kable_styling() %>%
 add_header_above(c(" " = 2, "Pre-Recruits" = 4, "Legal Males" = 2, "Total Males" = 2))%>%
 column_spec(1:2, width = "1.3em") %>%
@@ -110,7 +109,7 @@ read.csv("../output/931PopFems_Main.csv") %>%
   arrange(Year) -> fem
 
 kable(fem, format = "latex", booktabs = T, align = 'r',
-      caption="Female Tanner crab abundance estimates from trawl surveys in the Southern District, 1990-2018.") %>%
+      caption="Female Tanner crab abundance estimates from trawl surveys in the Southern District, 1990-2019.") %>%
   kable_styling() %>%
   add_header_above(c(" " = 2, "Juvenile" = 2, "Mature" = 2, "Total Females" = 2))
 ```
@@ -120,17 +119,17 @@ kable(fem, format = "latex", booktabs = T, align = 'r',
 
 
 
-![Legal male Tanner crab abundance estimates and 95% confidence intervals using the 2017 legal size (114 mm) from trawl surveys in the Southern District, 1990-2018.](../figs/T04LM_2017SCs.png)
+![Legal male Tanner crab abundance estimates and 95% confidence intervals using the 2017 legal size (114 mm) from trawl surveys in the Southern District, 1990-2019.](../figs/T04LM_2017SCs.png)
 
-![Legal male Tanner crab abundance estimates and 95% confidence intervals using the pre-2017 legal size (140 mm) from trawl surveys in the Southern District, 1990-2018.](../figs/T04LM_oldSCs.png)
+![Legal male Tanner crab abundance estimates and 95% confidence intervals using the pre-2017 legal size (140 mm) from trawl surveys in the Southern District, 1990-2019.](../figs/T04LM_oldSCs.png)
 
 ```{r, results='asis', echo=F}
-read.csv("../output/2018T04_931CatchByStation_17sc.csv", colClasses=rep("character"),11) %>% 
+read.csv("../output/2019T04_931CatchByStation_17sc.csv", colClasses=rep("character"),11) %>% 
   select(Station, nmi,  'Pre-4' = Pre4, 'Pre-3' = Pre3, 'Pre-2' = Pre2, 'Pre-1' = Pre1, Recruit, 'Post-Rec.' = Post,
     'Total' = TotMales, 'Juvenile' = JuvFems, 'Mature' = MatFems,
     'Total ' = TotFems) %>%
 kable( format = "latex", booktabs = T, align = 'r',
-    caption="Number of Tanner crab caught in the 2018 Southern District trawl survey categorized using the 2017 size classes.") %>%
+    caption="Number of Tanner crab caught in the 2019 Southern District trawl survey categorized using the 2017 size classes.") %>%
 kable_styling() %>%
 add_header_above(c(" " = 2, "Sublegal" = 4, "Legal" = 2)) %>%
 add_header_above(c(" " = 2, "Males" = 7, "Females" = 3))
