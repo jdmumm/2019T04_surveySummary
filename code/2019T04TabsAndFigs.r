@@ -29,20 +29,20 @@ awl <- read.csv('./data/awl_shellfish_190731.csv')
 # New Size Classes
   dat_17 %>% filter (PROJECT_CODE == "T04") %>% 
     transmute(Year = YEAR,Tows = n,
-              'Pre-4' =  MT10_P_,
-              'Pre-3' =  MT9_P_,  
-              'Pre-2' = MT7_P_ + MT8_P_, 
-              'Pre-1' = MT5_P_ + MT6_P_, 
+              'Pre4' =  MT10_P_,
+              'Pre3' =  MT9_P_,  
+              'Pre2' = MT7_P_ + MT8_P_, 
+              'Pre1' = MT5_P_ + MT6_P_, 
               'LM'    = LM_P_, 'LM_CI' = LM_P_CI_,  
               'TM'    = TM_P_, 'TM_CI' = TM_P_CI_) -> m_17
   #write.csv(m_17,'./output/931PopMales_Main_17.csv') 
 #Old Size Classes
   dat_old %>% filter (PROJECT_CODE == "T04") %>% 
     transmute(Year = Year,Tows = n,
-              'Pre-4' =  MT10_P_,
-              'Pre-3' =  MT9_P_,  
-              'Pre-2' = MT7_P_ + MT8_P_, 
-              'Pre-1' = MT5_P_ + MT6_P_, 
+              'Pre4' =  MT10_P_,
+              'Pre3' =  MT9_P_,  
+              'Pre2' = MT7_P_ + MT8_P_, 
+              'Pre1' = MT5_P_ + MT6_P_, 
               'LM'    = LM_P_, 'LM_CI' = LM_P_CI_,  
               'TM'    = TM_P_, 'TM_CI' = TM_P_CI_) -> m_old
   #write.csv(m_old,'./output/931PopMales_Main_old.csv') 
