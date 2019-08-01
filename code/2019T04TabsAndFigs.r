@@ -148,7 +148,7 @@ read.csv('./data/C_17_190731.csv') %>%
     labs( x = "Year", y = "Thousands of crab") + 
     theme( axis.text.x = element_text(angle=90, vjust= 0)) -> Lold
   
-  Lold %>% ggsave(file = './figs/T04LM_OldSCs.png', dpi=300, height=8.5, width=6.5, units="in" )
+  Lold %>% ggsave(file = './figs/T04LM_oldSCs.png', dpi=300, height=8.5, width=6.5, units="in" )
   
 
 ## DUNGY CPUE ----
