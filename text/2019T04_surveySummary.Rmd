@@ -1,7 +1,7 @@
 ---
 title: "2019 Southern District Trawl Survey Summary (DRAFT)"
-author: 'Joshua Mumm'      
-date: "August 31st, 2019"
+author: 'Josh Mumm'      
+date: "September 1st, 2019"
 output:
   pdf_document:
     includes:
@@ -22,7 +22,7 @@ The 2019 Southern District large-mesh bottom trawl survey was completed between 
 
 The recruit class size definitions for male Tanner crab in Cook Inlet were revised in 2017, coinciding with a reduction in the legal size limit from 140 mm (5.5 in) to 114 mm (4.5 in) (Table 1). For historical comparison the entire time series of survey data (1990 to 2019) is summarized using both sets of recruit classes herein.
 
-Using the new legal size (114 mm), 420 legal males were captured in the 2019 survey.  Mean legal male CPUE was 22.2 crab/nmi (CV = 190%) and ranged from 0 to 146.  The estimated abundance of legal males using the new legal size was 273,511 crab (+/- 170,281 @ 95% CI), a 23% increase from 2018. Although the legal male abundance has increased in 2 consecutive years since 2017, it remains less than what was observed prior to 2010 (Table 2; Figure 2).
+Using the new legal size (114 mm), 420 legal males were captured in the 2019 survey.  Mean legal male CPUE was 22.2 crab/nmi (CV = 190%) and ranged from 0 to 146.  The estimated abundance of legal males using the new legal size was 273,511 crab (+/- 170,281 @ 95% CI), a 23% increase from 2018. While the legal male abundance has increased in 2 consecutive years since 2017, it remains less than what was observed prior to 2010 (Table 2; Figure 2).
 
 Using the old legal size (140 mm), 6 legal males were captured in the 2019 survey.  When analyzed using the old size categories, the 2019 survey produced the lowest legal male abundance estimate on record, 4,135 crab (+/- 5,149) (Table 3; Figure 3).      
 
