@@ -60,7 +60,7 @@ dat_17 %>% filter (PROJECT_CODE == 'T04') %>% select(year = YEAR, tows = n,
 ##  Catch by Station (per Carol request) ----
 read.csv('./data/C_17_190731.csv') %>%
   right_join(event, by = c('EVENT_ID' = 'Event')) %>% # limited to good tows at top
-  filter (YEAR == 2018) %>% transmute(
+  filter (YEAR == 2019) %>% transmute(
     Station = STATION_ID,
     nmi = length,
     'Pre4' = MT10_T, 
@@ -75,12 +75,12 @@ read.csv('./data/C_17_190731.csv') %>%
     TotFems = TF_T) %>% arrange(Station) %>%
   mutate_if(is.numeric, funs(as.character(formatC(round(., 2),2,format = "f")))) -> c
 
-  write.csv(c,'./output/2018T04_931CatchByStation_17sc.csv') 
+  write.csv(c,'./output/2019T04_931CatchByStation_17sc.csv') 
   # previously a version of this from SQL, emailed to KG.  
 
 ## CPUE by station (per KG request 180130, not incorporated to 2017 rmd) ----
   read.csv('./data/C_17_190731.csv') %>%  right_join(event, by = c('EVENT_ID' = 'Event')) %>% # limited to good tows at top
-    filter  (YEAR == 2018) %>% transmute(
+    filter  (YEAR == 2019) %>% transmute(
     Station = STATION_ID, 
     length = length, 
     Sublegal = (MT5_T + MT6_T + MT7_T + MT8_T + MT9_T + MT10_T)/length, 
@@ -93,7 +93,7 @@ read.csv('./data/C_17_190731.csv') %>%
   write.csv(cpm ,'./output/2019T04_931CPUEByStation_17sc.csv') 
   
   # calc ranges and cv for KG 
-  events %>% filter (PROJECT_CODE == 'T04', YEAR == 2018, USED_IN_ESTIMATE == 'YES') %>% left_join(cpm, by= c("STATION_ID" = "Station")) %>% # exclude 139
+  events %>% filter (PROJECT_CODE == 'T04', YEAR == 2019, USED_IN_ESTIMATE == 'YES') %>% left_join(cpm, by= c("STATION_ID" = "Station")) %>% # exclude 139
   group_by(YEAR) %>% summarise( n= n(),
                                 LM_mean = mean(Legal), 
                                 LM_min = min(Legal), 
@@ -112,7 +112,7 @@ read.csv('./data/C_17_190731.csv') %>%
                                 MF_mean = mean(Mature_fems), 
                                 MF_min = min(Mature_fems),
                                 MF_max = max(Mature_fems), 
-                                MF_CV = ((var(Mature_fems)^.5))/MF_mean) %>% select (JF_mean, JF_CV, MF_mean, MF_CV)
+                                MF_CV = ((var(Mature_fems)^.5))/MF_mean) %>% select (JF_mean, JF_CV, MF_mean, MF_CV, LM_mean, LM_CV)
       
   
 ##Plot LM ---- 
